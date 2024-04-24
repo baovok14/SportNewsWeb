@@ -3,7 +3,7 @@
     ViewData["Title"] = "CauLong";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model List<TblPost>;
+@model List<TblPosts>;
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -75,19 +75,33 @@
         <div class="col-md-8 border-right p-3">
             <img class="img-size" src="https://cdnmedia.webthethao.vn/thumb/525-445/uploads/Chau-La/bad-cupdongdoi-2004%20(2).jpg" />
             <div>
-                <a class="text-center text-primary h3" asp-area="" asp-controller="Home" asp-action="">Cầu lông đồng đội nam nữ hỗn hợp quốc gia năm 2024: Bắc Giang xuất sắc vô địch</a>
+                @{
+                    var pram1 = new Dictionary<string, string>
+                {{"id", Model[0].IdPost.ToString() } };
+                }
+                <a class="text-center text-primary h3" asp-area="" asp-controller="Home" asp-all-route-data=pram1 asp-action="DetailsBaiBao">@Model[0].Title</a>
             </div>
         </div>
         <div class="col-md-4 p-3">
             <div class="mb-3">
                 <img class="img-size" src="https://cdnmedia.webthethao.vn/thumb/250-165/uploads/Chau-La/bad-nguyenthuylinh-thienkim-dongnai-hanoi-1904.JPG" />
-                <a class="text-center">Cầu lông đồng đội nam nữ hỗn hợp quốc gia năm 2024: Nguyễn Thùy Linh toàn thắng, Đồng Nai giành hạng 3</a>
+                @{
+                    var pram2 = new Dictionary<string, string>
+                {{"id", Model[0].IdPost.ToString() } };
+                }
+                <a class="text-center text-primary h3" asp-area="" asp-controller="Home" asp-all-route-data=pram2 asp-for="id" asp-action="DetailsBaiBao">@Model[1].Title</a>
             </div>
             <hr />
             <div>
                 <img class="img-size" src="https://cdnmedia.webthethao.vn/thumb/250-165/uploads/Chau-La/bad-nguyenthuylinh-1904.JPG" />
-                <a class="text-center">Trực tiếp Giải vô địch cầu lông đồng đội nam nữ hỗn hợp quốc gia năm 2024 – Tranh cúp Kamito hôm nay 19/04.</a>
+                @{
+                    var pram3 = new Dictionary<string, string>
+                {{"id", Model[0].IdPost.ToString() } };
+                }
+                <a class="text-center text-primary h3" asp-area="" asp-controller="Home" asp-all-route-data=pram3 asp-for="id" asp-action="DetailsBaiBao">@Model[2].Title</a>
+            </div>
         </div>
+        
     </div>
 </div>
 <div>

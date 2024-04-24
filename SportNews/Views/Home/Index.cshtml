@@ -1,5 +1,218 @@
-﻿@{
+﻿﻿@{
     ViewData["Title"] = "Home Page";
 }
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mục Thể Thao - Thanh Niên</title>
+    <style>
+        /* Custom CSS */
+        .img-size {
+            width: 100%;
+            height: auto;
+        }
 
+        .img-size2 {
+            width: auto;
+            height: 100%;
+        }
 
+        .img-size3 {
+            width: 142px;
+            height: 88.75px;
+        }
+        /* scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px; /* Width of the scrollbar */
+        }
+
+        /* Track (the area on the sides of the scrollbar) */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; /* Color of the track */
+        }
+
+        /* Handle (the draggable part of the scrollbar) */
+        ::-webkit-scrollbar-thumb {
+            background: #888; /* Color of the handle */
+        }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555; /* Color on hover */
+            }
+
+        .content-scrollbar {
+            width: auto;
+            height: 480px; /* Set a fixed height to make the scrollbar appear */
+            overflow-y: auto;
+            padding-right: 20px;
+            overflow-x: hidden;
+        }
+
+        .content-img {
+            width: auto; /* Đặt kích thước của div container, thay đổi theo nhu cầu */
+            height: auto; /* Đặt kích thước của div container, thay đổi theo nhu cầu */
+            position: relative; /* Cần thiết để hình ảnh có thể trải đều theo kích thước của div container */
+        }
+    </style>
+</head>
+<div class="content-img">
+    <a href="https://huflit.edu.vn/">
+        <img src="~/img/quangcao.png" class="img-fluid" alt="Quảng cáo" />
+    </a>
+
+</div>
+<h3 class="mt-3">TIN NÓNG NHẤT</h3>
+<div class="mt-3">
+    <div class="row border-top border-bottom">
+        <!-- Khung trái -->
+        <div class="col-md-8 border-right p-3">
+            <img class="img-size" src="https://images2.thanhnien.vn/zoom/736_460/528068263637045248/2024/4/2/gettyimages-1475439822-612x612-1712056355446575690352-18-0-401-612-crop-1712056359896576380178.jpg" />
+            <div>
+                <a class="text-center text-primary h3" asp-area="" asp-controller="Home" asp-action="DetailsBaiBao">U.23 Việt Nam trở thành đội Đông Nam Á thành công nhất VCK U.23 châu Á 2024?</a>
+            </div>
+        </div>
+        <div class="col-md-4 p-3">
+            <div class="mb-3">
+                <img class="img-size" src="https://images2.thanhnien.vn/zoom/351_219/528068263637045248/2024/4/20/photo-2024-04-20-23-53-35-fsxcrj8p-17136531867702126116081-19-0-819-1280-crop-1713653192595924017468.jpg" />
+                <a class="text-center">HLV Timur Kapadze: Thắng Kuwait dễ hơn U.23 Malaysia nhiều, Uzbekistan chờ sẵn U.23 Việt Nam rồi!</a>
+            </div>
+            <hr />
+            <div>
+                <img class="img-size" src="https://images2.thanhnien.vn/zoom/351_219/528068263637045248/2024/4/20/afc-u23-asian-cup-2024-match-33-17136342621032135562778-256-283-1511-2291-crop-1713642523664799530625.jpg" />
+                <a class="text-center">Xác định 5 đội vào tứ kết châu Á: Đông Nam Á chỉ có U.23 Việt Nam</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <h3 class="mt-3">TIN TRONG TUẦN</h3>
+    <div class="mt-3 row">
+        <div class="col-md-8">
+            <div>
+                <div class="d-flex border-bottom pb-3 pt-3">
+                    <div class="col-md-5 d-flex align-items-center justify-content-center">
+                        <img class="img-size" src="https://images2.thanhnien.vn/zoom/328_205/528068263637045248/2024/4/2/hinh-thumbnail-1712054629701135790621-54-0-1654-2560-crop-1712055299166172310017.jpg" />
+                    </div>
+                    <div class="col-md-7 ">
+                        <h4>Bóng đá</h4>
+                        <h5>Bảo hiểm AAA góp phần lan tỏa tinh thần thể thao đẹp đến sinh viên Việt Nam</h5>
+                        <p>Ngày 30.3, tại Sân vận động trường Đại học Tôn Đức Thắng đã diễn ra trận chung kết và bế mạc Giải Bóng đá Thanh niên sinh viên Việt Nam lần II. Bảo hiểm AAA là nhà tài trợ bảo hiểm duy nhất cho hơn 2.000...</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="d-flex border-bottom pb-3 pt-3">
+                    <div class="col-md-5 d-flex align-items-center justify-content-center">
+                        <img class="img-size" src="https://images2.thanhnien.vn/zoom/320_427/528068263637045248/2024/4/20/vietnam-malaysia-7-17136220343091902617641-0-395-1457-1488-crop-1713633835143699519233.jpeg" />
+                    </div>
+                    <div class="col-md-7 ">
+                        <h4>Bóng đá</h4>
+                        <h5>Bị loại sớm, HLV U.23 Malaysia cay đắng: ‘Việt Nam mạnh, chúng tôi mắc quá nhiều sai lầm’</h5>
+                        <p>HLV Juan Torres Garrido khẳng định U.23 Malaysia đã mắc nhiều sai sót trong thất bại 0-2 trước U.23 Việt Nam tối 20.4.</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="d-flex border-bottom pb-3 pt-3">
+                    <div class="col-md-5 d-flex align-items-center justify-content-center">
+                        <img class="img-size" src="https://images2.thanhnien.vn/zoom/320_427/528068263637045248/2024/4/20/vo-hoang-minh-khoa-ghi-ban-2-0-u23-vn-ma-vl-u23-chau-a-2024-204-qatar-17136238824832032596842-0-717-1421-1783-crop-17136367486181831069282.jpg" />
+                    </div>
+                    <div class="col-md-7 ">
+                        <h4>Bóng đá</h4>
+                        <h5>Vé tứ kết xứng đáng cho thầy trò HLV Hoàng Anh Tuấn</h5>
+                        <p>Với chiến thắng 2-0 trước U.23 Malaysia ở lượt trận thứ hai bảng D giải U.23 châu Á 2024, đội U.23 VN đã góp mặt ở tứ kết sớm một lượt đấu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 p-3">
+            <a href="https://vn.grandsurgery.com/">
+                <img class="img-size" src="https://i.pinimg.com/originals/ed/e8/89/ede8892e9d2c1d8510a48772efc591a1.jpg" />
+            </a>
+        </div>
+    </div>
+    <div class="d-flex">
+        <a class="mr-2" href="https://vn.grandsurgery.com/">
+            <img class="img-size" src="https://i.pinimg.com/originals/ed/e8/89/ede8892e9d2c1d8510a48772efc591a1.jpg" />
+        </a>
+        <a class="mr-2" href="https://vn.grandsurgery.com/">
+            <img class="img-size" src="https://i.pinimg.com/originals/ed/e8/89/ede8892e9d2c1d8510a48772efc591a1.jpg" />
+        </a>
+        <a class="mr-2" href="https://vn.grandsurgery.com/">
+            <img class="img-size" src="https://i.pinimg.com/originals/ed/e8/89/ede8892e9d2c1d8510a48772efc591a1.jpg" />
+        </a>
+    </div>
+    <div class="mt-5">
+        <div class="justify-content-center align-items-center d-flex"><h2 style="color:#0366d6">Multimedia</h2></div>
+        <hr />
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="d-flex align-items-center justify-content-center">
+                    <img class="img-size" src="https://images2.thanhnien.vn/zoom/721_451/528068263637045248/2024/4/20/avatar1713582863452-1713582868250726411696.jpeg" />
+                </div>
+                <div class="mt-2">
+                    <a style="font-size:20px" class="font-weight-bold" href="">
+                        Nhận định U.23 Malaysia - U.23 Việt Nam: Quyết thắng để giành vé sớm
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="content-scrollbar">
+                    <div class="row border-bottom pb-3 mb-3">
+                        <div class="col-4">
+                            <img class="img-size3" src="https://images2.thanhnien.vn/zoom/142_89/528068263637045248/2024/4/8/avatar1712561884225-17125618849611463324507.jpeg" />
+                        </div>
+                        <div class="col-8">
+                            <a class="font-weight-bold" href="">Tổ ấm của các ngôi sao bóng đá Việt Nam</a>
+                        </div>
+                    </div>
+                    <div class="row border-bottom pb-3 mb-3">
+                        <div class="col-4">
+                            <img class="img-size3" src="https://images2.thanhnien.vn/zoom/142_89/528068263637045248/2024/3/19/avatar1710864238124-17108642396061364847831.jpeg" />
+                        </div>
+                        <div class="col-8">
+                            <a class="font-weight-bold" href="">HLV 'bất đắc dĩ' của ĐH Văn Lang giúp ngựa ô thắng đại diện mạnh</a>
+                        </div>
+                    </div>
+                    <div class="row border-bottom pb-3 mb-3">
+                        <div class="col-4">
+                            <img class="img-size3" src="https://images2.thanhnien.vn/zoom/142_89/528068263637045248/2023/5/11/avatar1683801468048-16838014682791656004983.jpeg" />
+                        </div>
+                        <div class="col-8">
+                            <a class="font-weight-bold" href="">Nhà vô địch Phương Thủy: ‘Lấy khán giả của đối thủ làm khán giả của mình’</a>
+                        </div>
+                    </div>
+                    <div class="row border-bottom pb-3 mb-3">
+                        <div class="col-4">
+                            <img class="img-size3" src="https://images2.thanhnien.vn/zoom/142_89/528068263637045248/2024/4/17/avatar1713341178879-1713341181105931736029.jpeg" />
+                        </div>
+                        <div class="col-8">
+                            <a class="font-weight-bold" href="">Nguyễn Thùy Linh giành vé dự Olympic Paris 2024</a>
+                        </div>
+                    </div>
+                    <div class="row border-bottom pb-3 mb-3">
+                        <div class="col-4">
+                            <img class="img-size3" src="https://thanhnien.mediacdn.vn/zoom/142_89/325084952045817856/2024/3/14/.2-gioi-thieu-cac-san-pham-su-dung-o-vong-chung-ket-17104204964351966673007.mp4.jpg" />
+                        </div>
+                        <div class="col-8">
+                            <a class="font-weight-bold" href="">Vòng chung kết TNSV THACO Cup 2024: Các đội ăn ở, đi lại, dinh dưỡng thế nào?</a>
+                        </div>
+                    </div>
+                    <div class="row border-bottom pb-3 mb-3">
+                        <div class="col-4">
+                            <img class="img-size3" src="https://images2.thanhnien.vn/zoom/142_89/528068263637045248/2023/5/28/avatar1685259832128-1685259835952585121990.jpeg" />
+                        </div>
+                        <div class="col-8">
+                            <a class="font-weight-bold" href="">Ánh Viên chạy xe hơn 30 km tới lớp bơi miễn phí dạy các em nhỏ</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
