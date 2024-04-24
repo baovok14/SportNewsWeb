@@ -3,3 +3,42 @@
 *@
 @{
 }
+
+<body>
+    <div class="container mt-5">
+        <h2>Danh sách tin tức</h2>
+        <a href="/News/Create" class="btn btn-primary mb-3">Tạo bài viết mới</a>
+        <input type="text" id="searchInput" placeholder="Tìm kiếm..." class="form-control mb-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tên bài viết</th>
+                    <th>Thể loại</th>
+                    <th>Hình ảnh</th>
+                    <th>Ngày đăng</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dữ liệu bài viết sẽ được hiển thị ở đây -->
+                <tr>
+                    <td>Bài viết 1</td>
+                    <td>Thể loại A</td>
+                    <td><img src="path/to/image.jpg" alt="Hình ảnh"></td>
+                    <td>2024-04-24</td>
+                    <td>
+                        <a href="/News/Details/1" class="btn btn-info btn-sm">Details</a>
+                        <a href="/News/Edit/1" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="/News/Delete/1" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                <!-- ...Thêm các dòng dữ liệu khác tương tự... -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Thêm các thư viện JavaScript của Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
