@@ -7,11 +7,20 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
+<style>
+
+    .img-resize{
+        height:100px;
+        width:100px;
+    }
+</style>
 <body>
-    <header>
+    <header style="background:white">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SportNews</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img class="img-resize" src="data:image/png;base64,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" />
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -19,10 +28,25 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Bóng đá</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="BongRo">Bóng rổ</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="BongChuyen">Bóng chuyền</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CauLong">Cầu lông</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="BongBan">Bóng bàn</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="BoiLoi">Bơi lội</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Billiards">Billiards & Snooker</a>
                         </li>
                     </ul>
                 </div>

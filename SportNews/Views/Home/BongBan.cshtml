@@ -1,0 +1,157 @@
+﻿
+@{
+    ViewData["Title"] = "BongBan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mục Thể Thao - Thanh Niên</title>
+    <style>
+        /* Custom CSS */
+        .img-size {
+            width: 100%;
+            height: auto;
+        }
+
+        .img-size2 {
+            width: auto;
+            height: 100%;
+        }
+
+        .img-size3 {
+            width: 142px;
+            height: 88.75px;
+        }
+        /* scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px; /* Width of the scrollbar */
+        }
+
+        /* Track (the area on the sides of the scrollbar) */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; /* Color of the track */
+        }
+
+        /* Handle (the draggable part of the scrollbar) */
+        ::-webkit-scrollbar-thumb {
+            background: #888; /* Color of the handle */
+        }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555; /* Color on hover */
+            }
+
+        .content-scrollbar {
+            width: auto;
+            height: 480px; /* Set a fixed height to make the scrollbar appear */
+            overflow-y: auto;
+            padding-right: 20px;
+            overflow-x: hidden;
+        }
+
+        .content-img {
+            width: auto; /* Đặt kích thước của div container, thay đổi theo nhu cầu */
+            height: auto; /* Đặt kích thước của div container, thay đổi theo nhu cầu */
+            position: relative; /* Cần thiết để hình ảnh có thể trải đều theo kích thước của div container */
+        }
+    </style>
+</head>
+<div class="content-img">
+    <a href="https://huflit.edu.vn/">
+        <img src="~/img/quangcao.png" class="img-fluid" alt="Quảng cáo" />
+    </a>
+
+</div>
+<h3 class="mt-3">TIN NÓNG NHẤT</h3>
+<div class="mt-3">
+    <div class="row border-top border-bottom">
+        <!-- Khung trái -->
+        <div class="col-md-8 border-right p-3">
+            <img class="img-size" src="https://images2.thanhnien.vn/zoom/736_460/528068263637045248/2023/12/22/bua-an-1699265805832409448269-143-0-941-1276-crop-1703233530479216673186.jpg" />
+            <div>
+                <a class="text-center text-primary h3" asp-area="" asp-controller="Home" asp-action="">Vụ VĐV bóng bàn trẻ kêu đói: Các bên liên quan nhận kỷ luật khiển trách</a>
+            </div>
+        </div>
+        <div class="col-md-4 p-3">
+            <div class="mb-3">
+                <img class="img-size" src="https://images2.thanhnien.vn/zoom/351_219/528068263637045248/2023/12/10/z49616468999727bd5b96f7026a25a9fac9c3e12a99097-1702219065582369156970-65-47-731-1113-crop-17022191533911836319262.jpg" />
+                <a class="text-center">Ấn tượng từ các tay vợt bóng bàn trẻ tại giải cây vợt xuất sắc</a>
+            </div>
+            <hr />
+            <div>
+                <img class="img-size" src="https://images2.thanhnien.vn/zoom/351_219/528068263637045248/2023/11/6/bua-an-1699265805832409448269-156-48-923-1276-crop-1699265839570865326093.jpg" />
+                <a class="text-center">Vụ VĐV bóng bàn trẻ kêu đói: Cục TDTT làm rõ trách nhiệm đến cùng.</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h3 class="mt-3">TIN TRONG TUẦN</h3>
+        <div class="mt-3 row">
+            <div class="col-md-8">
+                <div>
+                    <div class="d-flex border-bottom pb-3 pt-3">
+                        <div class="col-md-5 d-flex align-items-center justify-content-center">
+                            <img class="img-size" src="https://images2.thanhnien.vn/thumb_w/328/528068263637045248/2023/10/25/1-dsc9492-16982343480251204053118-0-382-1665-1631-crop-1698234701595551980665.jpg" />
+                        </div>
+                        <div class="col-md-7 ">
+                            <h4>Bóng bàn</h4>
+                            <h5>Đội nữ TP.HCM vẫn giữ ngôi đầu giải bóng bàn đội mạnh toàn quốc</h5>
+                            <p>Sau khi thắng đội Hà Nội 3-0 ở tứ kết và đội Hải Dương 3-1 ở bán kết, đội nữ TP.HCM tiếp tục thắng đội T&T 3-1 ở chung kết để bảo vệ thành công ngôi vô địch giải bóng bàn đội mạnh toàn quốc 2023.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex border-bottom pb-3 pt-3">
+                        <div class="col-md-5 d-flex align-items-center justify-content-center">
+                            <img class="img-size" src="https://images2.thanhnien.vn/thumb_w/328/528068263637045248/2023/10/24/anh-chup-man-hinh-2023-10-24-luc-34454-ch-16981371205931326812716-0-171-1384-1209-crop-1698137238080127474042.png" />
+                        </div>
+                        <div class="col-md-7 ">
+                            <h4>Bóng bàn</h4>
+                            <h5>Vụ bữa ăn thiếu chất của VĐV bóng bàn trẻ: Chưa có án kỷ luật, chờ giải trình rõ</h5>
+                            <p>Tại buổi họp ngày 24.10, Cục trưởng Cục TDTT Đặng Hà Việt yêu cầu các bên liên quan phải giải trình kỹ lưỡng hơn, làm rõ vấn đề trong vụ VĐV đội tuyển bóng bàn trẻ quốc gia không được đảm bảo bữa ăn đủ chất.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex border-bottom pb-3 pt-3">
+                        <div class="col-md-5 d-flex align-items-center justify-content-center">
+                            <img class="img-size" src="https://images2.thanhnien.vn/thumb_w/328/528068263637045248/2023/10/23/anh-chup-man-hinh-2023-10-23-luc-65956-ch-16980624096492053185941-1-133-1326-1127-crop-1698062481252132719900.png" />
+                        </div>
+                        <div class="col-md-7 ">
+                            <h4>Bóng bàn</h4>
+                            <h5>Ngày 24.10, Cục TDTT họp giải quyết vụ việc VĐV đội tuyển bóng bàn trẻ kêu đóit</h5>
+                            <p>
+                                Cục trưởng Cục TDTT Đặng Hà Việt sẽ chủ trì cuộc họp với các bên liên quan để giải quyết vụ việc VĐV đội tuyển bóng bàn trẻ Việt Nam không được cung cấp bữa ăn đủ dinh dưỡng.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 p-3">
+                <a href="https://vn.grandsurgery.com/">
+                    <img class="img-size" src="https://i.pinimg.com/originals/ed/e8/89/ede8892e9d2c1d8510a48772efc591a1.jpg" />
+                </a>
+            </div>
+        </div>
+        <div class="d-flex">
+            <a class="mr-2" href="https://vn.grandsurgery.com/">
+                <img class="img-size" src="https://i.pinimg.com/originals/ed/e8/89/ede8892e9d2c1d8510a48772efc591a1.jpg" />
+            </a>
+            <a class="mr-2" href="https://vn.grandsurgery.com/">
+                <img class="img-size" src="https://i.pinimg.com/originals/ed/e8/89/ede8892e9d2c1d8510a48772efc591a1.jpg" />
+            </a>
+            <a class="mr-2" href="https://vn.grandsurgery.com/">
+                <img class="img-size" src="https://i.pinimg.com/originals/ed/e8/89/ede8892e9d2c1d8510a48772efc591a1.jpg" />
+            </a>
+        </div>
+    </div>
+</div>
+        </div>
+
+    </div>
+

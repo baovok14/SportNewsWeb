@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<p>admintest</p>
+<form asp-controller="Home" asp-action="PostBlog" method="POST" class="mb-5 ml-auto mr-0 tm-contact-form" enctype="multipart/form-data">
+    <div class="form-group row mb-4">
+        <label asp-for="Title" class="col-sm-3 col-form-label text-right tm-color-primary">Tilte</label>
+        <div class="col-sm-9">
+            <input class="form-control mr-0 ml-auto" asp-for="Title" type="text" oninput="limitWords(this, 255)" required>
+        </div>
+    </div>
+    <div class="form-group row mb-4">
+        <label for="image" class="col-sm-3 col-form-label text-right tm-color-primary">Image</label>
+        <div class="col-sm-9">
+            <input class="form-control mr-0 ml-auto" for="image" type="file" name="image" id="fileInput" onchange="checkFile(this.files[0])" required>
+        </div>
+    </div>
+    <div class="form-group row mb-5">
+        <label asp-for="Content" class="col-sm-3 col-form-label text-right tm-color-primary">Content</label>
+        <div class="col-sm-9">
+            <textarea class="form-control mr-0 ml-auto" asp-for="Content" rows="8" oninput="limitWords(this, 255)" required></textarea>
+        </div>
+    </div>
+    <div class="form-group row text-right">
+        <div class="col-12">
+            <button class="tm-btn tm-btn-primary tm-btn-small">Submit</button>
+        </div>
+    </div>
+</form>
+<script src="~/js/jquery.min.js"></script>
+
+<script>
+    function isImage(file) {
+        const validExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp'];
+        const fileExtension = file.name.split('.').pop().toLowerCase();
+        return validExtensions.includes(fileExtension);
+    }
+    function checkFile(file) {
+        if (isImage(file)) {
+            // File là ảnh, xử lý tiếp tục
+        } else {
+            // File không phải ảnh, hiển thị thông báo lỗi
+            alert('Vui lòng chọn một tệp ảnh.');
+            clearFileInput();
+            return;
+        }
+    }
+    function clearFileInput() {
+        const fileInput = document.getElementById('fileInput');
+        fileInput.value = ''; // Xóa giá trị của input file
+    }
+    function limitWords(inputElement, maxWords) {
+        const inputText = textareaElement.value;
+
+        if (inputText.length > maxCharacters) {
+            textareaElement.value = inputText.slice(0, maxCharacters);
+        }
+    }
+</script>
