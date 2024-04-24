@@ -2,8 +2,9 @@
     ViewData["Title"] = "DetailsBaiBao";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model List<TblPosts>
 <div class="mt-5">
-    <h2 class="detail-sapo align-content-center">Bản danh sách đội tuyển U.23 Việt Nam (VN) phần nào hé lộ cách tấn công mới của HLV Hoàng Anh Tuấn, vẫn dựa trên lối chơi kiểm soát bóng nhưng có cách áp đặt trận đấu kiểu khác.</h2>
+    <h2 class="detail-sapo align-content-center">@Model[0].Title</h2>
     <p>06/04/2024</p>
     </br>
 </div>
@@ -12,24 +13,10 @@
         <img src="https://images2.thanhnien.vn/thumb_w/640/528068263637045248/2024/4/5/20a1-onl-17123261971082130157796.jpg" />
     </div>
     <br />
-    <h2 class="align-content-center">Thứ bóng đá chủ động của đội U.23 VN</h2>
-    <p class="align-content-center">Trong danh sách tập trung đội tuyển U.23 VN vắng cái tên Võ Minh Trọng, người đã bị đau vai sau trận thua Indonesia ngày 26.3 nhưng đã ra sân chơi vài phút cuối khi CLB Bình Dương hòa CLB Thể Công Viettel ở vòng 15 V-League 2023 - 2024 hôm 4.4. Rõ ràng, HLV Hoàng Anh Tuấn khi tiếp quản đội tuyển U.23 VN đã có những ý tưởng mới. Thực tế, trong suốt quá trình dẫn dắt các đội tuyển trẻ từ U.17 VN đến U.20 VN, U.23 VN các năm qua thì ông Tuấn luôn chủ động "đồng bộ hóa" với cách chơi của các đội tuyển VN dưới thời ông Park Hang-seo cũng như ông Philippe Troussier. Như tại ASIAD Hàng Châu năm 2023 hay khi đưa đội tuyển U.23 VN vô địch Đông Nam Á tại Thái Lan năm 2023, các đội bóng của ông Tuấn dù độ tuổi trung bình chỉ xấp xỉ 20 nhưng đều chơi kiểm soát bóng trước các đối thủ hơn mình 2 - 3 tuổi. Từ lối chơi phòng ngự phản công sở trường, HLV Hoàng Anh Tuấn đã "nâng cấp" thứ bóng đá của mình theo đúng xu hướng kiểm soát bóng nhưng đảm bảo sự cân bằng.</p>
+    <h2 class="align-content-center">@Model[0].Title</h2>
+    <p class="align-content-center">@Model[0].Body</p>
 </div>
-<div>
-    <div class="d-flex justify-content-center align-content-center" style="width:contain;height:auto">
-        <img src="https://images2.thanhnien.vn/thumb_w/640/528068263637045248/2024/4/5/20a1-onl-17123261971082130157796.jpg" />
-    </div>
-    <br />
-    <h2 class="align-content-center">Thứ bóng đá chủ động của đội U.23 VN</h2>
-    <p class="align-content-center">Trong danh sách tập trung đội tuyển U.23 VN vắng cái tên Võ Minh Trọng, người đã bị đau vai sau trận thua Indonesia ngày 26.3 nhưng đã ra sân chơi vài phút cuối khi CLB Bình Dương hòa CLB Thể Công Viettel ở vòng 15 V-League 2023 - 2024 hôm 4.4. Rõ ràng, HLV Hoàng Anh Tuấn khi tiếp quản đội tuyển U.23 VN đã có những ý tưởng mới. Thực tế, trong suốt quá trình dẫn dắt các đội tuyển trẻ từ U.17 VN đến U.20 VN, U.23 VN các năm qua thì ông Tuấn luôn chủ động "đồng bộ hóa" với cách chơi của các đội tuyển VN dưới thời ông Park Hang-seo cũng như ông Philippe Troussier. Như tại ASIAD Hàng Châu năm 2023 hay khi đưa đội tuyển U.23 VN vô địch Đông Nam Á tại Thái Lan năm 2023, các đội bóng của ông Tuấn dù độ tuổi trung bình chỉ xấp xỉ 20 nhưng đều chơi kiểm soát bóng trước các đối thủ hơn mình 2 - 3 tuổi. Từ lối chơi phòng ngự phản công sở trường, HLV Hoàng Anh Tuấn đã "nâng cấp" thứ bóng đá của mình theo đúng xu hướng kiểm soát bóng nhưng đảm bảo sự cân bằng.</p>
-</div>
-<div>
-    <div class="d-flex justify-content-center align-content-center" style="width:contain;height:auto">
-        <img src="https://images2.thanhnien.vn/thumb_w/640/528068263637045248/2024/4/5/20a1-onl-17123261971082130157796.jpg" />
-    </div>
-    <br />
-    <h2 class="align-content-center">Thứ bóng đá chủ động của đội U.23 VN</h2>
-    <p class="align-content-center">Trong danh sách tập trung đội tuyển U.23 VN vắng cái tên Võ Minh Trọng, người đã bị đau vai sau trận thua Indonesia ngày 26.3 nhưng đã ra sân chơi vài phút cuối khi CLB Bình Dương hòa CLB Thể Công Viettel ở vòng 15 V-League 2023 - 2024 hôm 4.4. Rõ ràng, HLV Hoàng Anh Tuấn khi tiếp quản đội tuyển U.23 VN đã có những ý tưởng mới. Thực tế, trong suốt quá trình dẫn dắt các đội tuyển trẻ từ U.17 VN đến U.20 VN, U.23 VN các năm qua thì ông Tuấn luôn chủ động "đồng bộ hóa" với cách chơi của các đội tuyển VN dưới thời ông Park Hang-seo cũng như ông Philippe Troussier. Như tại ASIAD Hàng Châu năm 2023 hay khi đưa đội tuyển U.23 VN vô địch Đông Nam Á tại Thái Lan năm 2023, các đội bóng của ông Tuấn dù độ tuổi trung bình chỉ xấp xỉ 20 nhưng đều chơi kiểm soát bóng trước các đối thủ hơn mình 2 - 3 tuổi. Từ lối chơi phòng ngự phản công sở trường, HLV Hoàng Anh Tuấn đã "nâng cấp" thứ bóng đá của mình theo đúng xu hướng kiểm soát bóng nhưng đảm bảo sự cân bằng.</p>
-</div>
+
+
 
 
