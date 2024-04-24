@@ -54,7 +54,7 @@ namespace SportNews.Controllers
             else
             {
                 strSQL += " where 1 = 1";
-                strSQL += " and cate_id = '" + title + "'";
+                strSQL += " and cate_id = '" + title + "' order by id_post desc";
                 return strSQL;
             }    
         }
