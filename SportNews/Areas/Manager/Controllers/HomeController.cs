@@ -11,6 +11,10 @@ namespace SportNews.Areas.Manager.Controllers
         {
             return View();
         }
+        public IActionResult Login()
+        {
+            return View();
+        }
     }
     //[Area("Manager")]
     //[HttpPost]
