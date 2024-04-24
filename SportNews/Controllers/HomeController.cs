@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SportNews.Models;
 using System;
@@ -12,14 +13,18 @@ namespace SportNews.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly NewsContext _context;
+        NewsContext db = new NewsContext();
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, NewsContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
+            
             return View();
         }
 
@@ -33,13 +38,30 @@ namespace SportNews.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        public IActionResult DetailsBaiBao()
+        public IActionResult DetailsBaiBao(string id)
         {
-            return View();
+            var lsPost = _context.TblPosts.Where(b => b.IdPost.ToString() == id).ToList();
+
+            return View(lsPost);
+        }
+        public string LoadTitleCategory(string title)
+        {
+            string strSQL = "Select * from tbl_Posts";
+            if(title  == null || title == "") 
+            {
+                return strSQL;
+            }
+            else
+            {
+                strSQL += " where 1 = 1";
+                strSQL += " and cate_id = '" + title + "'";
+                return strSQL;
+            }    
         }
         public IActionResult BongRo()
         {
-            return View();
+            var lsView = _context.TblPosts.FromSqlRaw(LoadTitleCategory("BR")).ToList();
+            return View(lsView);
         }
         public IActionResult BongChuyen()
         {
