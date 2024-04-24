@@ -2,6 +2,7 @@
     ViewData["Title"] = "BongChuyen";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model List<TblPosts>;
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -73,6 +74,34 @@
         <div class="col-md-8 border-right p-3">
             <img class="img-size" src="https://cdnmedia.webthethao.vn/thumb/525-445/uploads/2024-04-20/Thanh-Thuy-bong-chuyen-phong-van.jpg" />
             <div>
+                @{
+                    var pram1 = new Dictionary<string, string>
+                {{"id", Model[0].IdPost.ToString() } };
+                }
+                <a class="text-center text-primary h3" asp-area="" asp-controller="Home" asp-all-route-data=pram1 asp-action="DetailsBaiBao">@Model[0].Title</a>
+            </div>
+        </div>
+        <div class="col-md-4 p-3">
+            <div class="mb-3">
+                <img class="img-size" src="https://cdnmedia.webthethao.vn/thumb/250-165/uploads/2024-04-20/u20.jpeg" />
+                @{
+                    var pram2 = new Dictionary<string, string>
+                {{"id", Model[0].IdPost.ToString() } };
+                }
+                <a class="text-center text-primary h3" asp-area="" asp-controller="Home" asp-all-route-data=pram2 asp-for="id" asp-action="DetailsBaiBao">@Model[1].Title</a>
+            </div>
+            <hr />
+            <div>
+                <img class="img-size" src="https://cdnmedia.webthethao.vn/thumb/250-165/uploads/2024-04-20/quoc-duy-sea-games.jpg" />
+                @{
+                    var pram3 = new Dictionary<string, string>
+                {{"id", Model[0].IdPost.ToString() } };
+                }
+                <a class="text-center text-primary h3" asp-area="" asp-controller="Home" asp-all-route-data=pram3 asp-for="id" asp-action="DetailsBaiBao">@Model[2].Title</a>
+            </div>
+        @*<div class="col-md-8 border-right p-3">
+            <img class="img-size" src="https://cdnmedia.webthethao.vn/thumb/525-445/uploads/2024-04-20/Thanh-Thuy-bong-chuyen-phong-van.jpg" />
+            <div>
                 <a class="text-center text-primary h3" asp-area="" asp-controller="Home" asp-action="">Thanh Thuý có 2 đồng đội đầu tiên trong màu áo CLB bóng chuyền Thổ Nhĩ Kỳ</a>
             </div>
         </div>
@@ -86,14 +115,34 @@
                 <img class="img-size" src="https://cdnmedia.webthethao.vn/thumb/250-165/uploads/2024-04-20/quoc-duy-sea-games.jpg" />
                 <a class="text-center">Bóng chuyền nam Việt Nam giành vé tham dự AVC Challenge Cup tại Bahrain với những đối thủ rất mạnh</a>
             </div>
-        </div>
+        </div>*@
     </div>
 </div>
 <div>
     <h3 class="mt-3">TIN TRONG TUẦN</h3>
     <div class="mt-3 row">
         <div class="col-md-8">
-            <div>
+            @for(int i = 3; i < Model.Count;i++)
+            {
+
+                var pram = new Dictionary<string, string>
+            {{"id", Model[i].IdPost.ToString() } };
+                
+                  
+            
+                <div>
+                    <div class="d-flex border-bottom pb-3 pt-3">
+                        <div class="col-md-5 d-flex align-items-center justify-content-center">
+                            <img class="img-size" src="https://cdnmedia.webthethao.vn/thumb/250-170/uploads/2024-04-19/409332377_876795964446546_8754386444729758023_n.jpg" />
+                        </div>
+                        <div class="col-md-7 ">
+                            <h4>Bóng Chuyền</h4>
+                            <a asp-area="" asp-controller="Home" asp-action="DetailsBaiBao" asp-all-route-data=pram><h5>@Model[i].Title</h5></a>
+                        </div>
+                    </div>
+                </div>
+            }
+            @*<div>
                 <div class="d-flex border-bottom pb-3 pt-3">
                     <div class="col-md-5 d-flex align-items-center justify-content-center">
                         <img class="img-size" src="https://cdnmedia.webthethao.vn/thumb/250-170/uploads/2024-04-19/409332377_876795964446546_8754386444729758023_n.jpg" />
@@ -128,7 +177,7 @@
                         <p>Cập nhật lịch thi đấu giải bóng chuyền hạng A quốc gia 2024 diễn ra tại Quảng Nam từ ngày 20/4 đến 2/5 với 67 trận đấu.</p>
                     </div>
                 </div>
-            </div>
+            </div>*@
         </div>
         <div class="col-md-4 p-3">
             <a href="https://vn.grandsurgery.com/">

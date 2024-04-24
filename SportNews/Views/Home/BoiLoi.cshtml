@@ -105,44 +105,26 @@
         <h3 class="mt-3">TIN TRONG TUẦN</h3>
         <div class="mt-3 row">
             <div class="col-md-8">
+                @for(int i = 3; i < Model.Count;i++)
+            {
+
+                var pram = new Dictionary<string, string>
+            {{"id", Model[i].IdPost.ToString() } };
+                
+                  
+            
                 <div>
                     <div class="d-flex border-bottom pb-3 pt-3">
                         <div class="col-md-5 d-flex align-items-center justify-content-center">
-                            <img class="img-size" src="https://images2.thanhnien.vn/zoom/328_205/Uploaded/gianglao/2019_12_07/avhcv_GFFF.jpg" />
+                            <img class="img-size" src="https://images2.thanhnien.vn/zoom/320_427/528068263637045248/2023/12/31/2023-12-30t031508z1140056854mt1usatoday22192496rtrmadp3nba-brooklyn-nets-at-washington-wizards-17040015581221195674034-0-284-1334-1285-crop-17040021076581408841134.jpg" />
                         </div>
                         <div class="col-md-7 ">
                             <h4>Bơi lội</h4>
-                            <h5>Bơi lội SEA Games: Ánh Viên vượt mặt siêu kình ngư Joseph Schooling</h5>
-                            <p>Tối nay 7.12, nữ kình ngư số 1 Việt Nam (VN), Nguyễn Thị Ánh Viên tiếp tục thi đấu bùng nổ để lập thêm cú đúp HCV, khi chiến thắng thuyết phục ở 2 nội dung sở trường 400m tự do và 100m ngửa, qua đó nâng tổng số HCV đoạt được đến nay lên con số 5 HCV và 1 HCB.</p>
+                            <a asp-area="" asp-controller="Home" asp-action="DetailsBaiBao" asp-all-route-data=pram><h5>@Model[i].Title</h5></a>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div class="d-flex border-bottom pb-3 pt-3">
-                        <div class="col-md-5 d-flex align-items-center justify-content-center">
-                            <img class="img-size" src="https://images2.thanhnien.vn/zoom/328_205/Uploaded/gianglao/2019_12_07/anhvienhcv_IHXV.jpg" />
-                        </div>
-                        <div class="col-md-7 ">
-                            <h4>Bơi lội</h4>
-                            <h5>Bơi lội SEA Games: Ánh Viên đối thủ là chính mình</h5>
-                            <p>Với 3 chiếc HCV đã đoạt ở các nội dung 200m tự do, 200m ngửa và 200m cá nhân hỗn hợp, nữ kình ngư số 1 Việt Nam, Nguyễn Thị Ánh Viên vẫn còn 5 nội dung thi đấu nữa để hoàn tất chỉ tiêu đoạt 8 HCV của mình tại SEA Games 30 ..</p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="d-flex border-bottom pb-3 pt-3">
-                        <div class="col-md-5 d-flex align-items-center justify-content-center">
-                            <img class="img-size" src="https://thanhnien.mediacdn.vn/zoom/328_205/Uploaded/thaopn/2017_08_26/21124777_10212237200339095_1042265594_o_klxe_DCJZ.jpg" />
-                        </div>
-                        <div class="col-md-7 ">
-                            <h4>Bơi lội</h4>
-                            <h5>Bơi lội ngày 26.8: Ánh Viên tái lập kỳ tích, Huy Hoàng lật đổ đàn anh</h5>
-                            <p>
-                                Nguyễn Thị Ánh Viên tái lập kỳ tích giành 8 huy chương vàng, kình ngư 17 tuổi Nguyễn Huy Hoàng lật đổ đàn anh Lâm Quang Nhật - đó là những điểm nhấn cuối cùng của đội tuyển bơi lội Việt Nam ở SEA Games 29.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            }
             </div>
             <div class="col-md-4 p-3">
                 <a href="https://vn.grandsurgery.com/">
