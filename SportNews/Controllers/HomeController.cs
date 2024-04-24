@@ -65,23 +65,28 @@ namespace SportNews.Controllers
         }
         public IActionResult BongChuyen()
         {
-            return View();
+            var lsView = _context.TblPosts.FromSqlRaw(LoadTitleCategory("BC")).ToList();
+            return View(lsView);
         }
         public IActionResult CauLong()
         {
-            return View();
+            var lsView = _context.TblPosts.FromSqlRaw(LoadTitleCategory("CL")).ToList();
+            return View(lsView);
         }
         public IActionResult BongBan()
         {
-            return View();
+            var lsView = _context.TblPosts.FromSqlRaw(LoadTitleCategory("BB")).ToList();
+            return View(lsView);
         }
         public IActionResult BoiLoi()
         {
-            return View();
+            var lsView = _context.TblPosts.FromSqlRaw(LoadTitleCategory("BL")).ToList();
+            return View(lsView);
         }
         public IActionResult Billiards()
         {
-            return View();
+            var lsView = _context.TblPosts.FromSqlRaw(LoadTitleCategory("BIL")).ToList();
+            return View(lsView);
         }
     }
 }
