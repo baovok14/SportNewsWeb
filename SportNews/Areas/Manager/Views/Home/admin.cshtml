@@ -4,18 +4,26 @@
 @{
 }
 
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SportNews</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
 <body>
     <div class="container mt-5">
         <h2>Danh sách tin tức</h2>
         <a href="/News/Create" class="btn btn-primary mb-3">Tạo bài viết mới</a>
         <input type="text" id="searchInput" placeholder="Tìm kiếm..." class="form-control mb-3">
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Tên bài viết</th>
                     <th>Thể loại</th>
                     <th>Hình ảnh</th>
                     <th>Ngày đăng</th>
+                    <th>Chức năng</th>
                     <th></th>
                 </tr>
             </thead>
