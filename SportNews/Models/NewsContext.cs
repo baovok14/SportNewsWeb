@@ -107,8 +107,8 @@ namespace SportNews.Models
                     .IsRowVersion()
                     .IsConcurrencyToken();
 
-                entity.Property(e => e.Role)
-                    .HasColumnName("role")
+                entity.Property(e => e.Password)
+                    .HasColumnName("password")
                     .HasMaxLength(255);
 
                 entity.Property(e => e.Username)

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.VisualBasic;
 using SportNews.Models;
 using System;
+using System.Linq;
 
 namespace SportNews.Areas.Manager.Controllers
 {
@@ -20,12 +22,61 @@ namespace SportNews.Areas.Manager.Controllers
         }
         public IActionResult Index()
         {
-            //if(HttpContext.Session())
-            return View();
+
+            if (HttpContext.Session.GetString("Username") != null)
+            {
+
+                //model.sampleStatus = _context.SampleStatuses.FromSqlRaw(GetData.GetSQLString(filter: 1,datein: "09/15/2021")).ToList();
+                //model.location = _context.TblLocations.ToList();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
         }
-        public IActionResult Login()
+    
+        public IActionResult Login(string user, string password)
         {
-            return View();
+
+            //Microsoft.AspNetCore.Mvc.Razor.RazorPageBase.Layout("_LayoutLogin") = "_LayoutLogin";
+
+            if (HttpContext.Session.GetString("Username") == null) //Nếu đã có session => đã đăng nhập
+            {
+                if (user is null)
+                {
+                    return View();
+                }
+                else
+                {
+                    var userList = _context.TblUsers.Where(x => x.Username == user).FirstOrDefault();
+                    if (userList is null)
+                    {
+                        return View();
+                    }
+                    else
+                    {
+                        if (userList.Username == user && userList.Password == password)
+                        {
+                            
+                             HttpContext.Session.SetString("Username", user);
+                             return RedirectToAction("Index", "Home");
+                            
+
+                        }
+                        else
+                        {
+                            return View();
+                        }
+
+                    }
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
         }
         public IActionResult admin()
         {
