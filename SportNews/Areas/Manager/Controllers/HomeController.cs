@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using SportNews.Models;
 using System;
 
 namespace SportNews.Areas.Manager.Controllers
@@ -7,15 +9,30 @@ namespace SportNews.Areas.Manager.Controllers
     [Area("Manager")]
     public class HomeController : Controller
     {
+        private readonly ILogger<HomeController> _logger;
+        private readonly NewsContext _context;
+        NewsContext db = new NewsContext();
+
+        public HomeController(ILogger<HomeController> logger, NewsContext context)
+        {
+            _logger = logger;
+            _context = context;
+        }
         public IActionResult Index()
         {
+            //if(HttpContext.Session())
             return View();
         }
         public IActionResult Login()
         {
             return View();
         }
+        public IActionResult admin()
+        {
+            return View();
+        }
     }
+}
     //[Area("Manager")]
     //[HttpPost]
     //public IActionResult Index(UserBlog blog, IFormFile image)
@@ -39,4 +56,4 @@ namespace SportNews.Areas.Manager.Controllers
     //        return RedirectToAction("Index");
     //    return View();
     //}
-}
+
