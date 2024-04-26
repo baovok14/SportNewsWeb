@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualBasic;
 using SportNews.Models;
 using System;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace SportNews.Areas.Manager.Controllers
 {
@@ -14,7 +17,7 @@ namespace SportNews.Areas.Manager.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly NewsContext _context;
         NewsContext db = new NewsContext();
-
+        private readonly IWebHostEnvironment _hostingEnvironment;
         public HomeController(ILogger<HomeController> logger, NewsContext context)
         {
             _logger = logger;
@@ -23,7 +26,7 @@ namespace SportNews.Areas.Manager.Controllers
         public IActionResult Index()
         {
 
-            if (HttpContext.Session.GetString("Username") != null)
+            if (HttpContext.Session.GetInt32("Userid") != null)
             {
 
                 //model.sampleStatus = _context.SampleStatuses.FromSqlRaw(GetData.GetSQLString(filter: 1,datein: "09/15/2021")).ToList();
@@ -41,7 +44,7 @@ namespace SportNews.Areas.Manager.Controllers
 
             //Microsoft.AspNetCore.Mvc.Razor.RazorPageBase.Layout("_LayoutLogin") = "_LayoutLogin";
 
-            if (HttpContext.Session.GetString("Username") == null) //Nếu đã có session => đã đăng nhập
+            if (HttpContext.Session.GetInt32("Userid") == null) //Nếu đã có session => đã đăng nhập
             {
                 if (user is null)
                 {
@@ -59,7 +62,7 @@ namespace SportNews.Areas.Manager.Controllers
                         if (userList.Username == user && userList.Password == password)
                         {
                             
-                             HttpContext.Session.SetString("Username", user);
+                             HttpContext.Session.SetInt32("Userid", userList.UserId);
                              return RedirectToAction("Index", "Home");
                             
 
@@ -82,29 +85,47 @@ namespace SportNews.Areas.Manager.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Index(TblPosts blog, IFormFile image)
+        {
+            if (HttpContext.Session.GetInt32("Userid") == null) return RedirectToAction("Login");
+            blog.UserId = HttpContext.Session.GetInt32("Userid")!;
+            
+            if (image != null)
+            {
+                blog.img = image.FileName;
+                if (!UploadFile(image, blog.UserId.ToString()).Result)
+                {
+                    // if the file is not uploaded successfully pop up a message 
+                    ModelState.AddModelError("Image", "The image is not uploaded successfully");
+                    return View();
+                }
+            }
+            _context.Add(blog);
+            _context.SaveChanges();
+            if (ModelState.IsValid)
+                return RedirectToAction("Index");
+            return View();
+        }
+        public async Task<bool> UploadFile(IFormFile file, string userId)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return false;
+            }
+
+            var folderPath = Path.Combine(_hostingEnvironment.WebRootPath, "UserFolders", userId);
+            var filePath = Path.Combine(folderPath, file.FileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+
+            }
+            return true;
+        }
     }
 }
-    //[Area("Manager")]
-    //[HttpPost]
-    //public IActionResult Index(UserBlog blog, IFormFile image)
-    //{
-    //    if (HttpContext.Session.GetInt32("UserId") == null) return RedirectToAction("Login");
-    //    blog.UserId = (int)HttpContext.Session.GetInt32("UserId")!;
-    //    blog.DateTime = DateTime.Now;
-    //    if (image != null)
-    //    {
-    //        blog.Image = image.FileName;
-    //        if (!UploadFile(image, blog.UserId.ToString()).Result)
-    //        {
-    //            // if the file is not uploaded successfully pop up a message 
-    //            ModelState.AddModelError("Image", "The image is not uploaded successfully");
-    //            return View();
-    //        }
-    //    }
-    //    _context.Add(blog);
-    //    _context.SaveChanges();
-    //    if (ModelState.IsValid)
-    //        return RedirectToAction("Index");
-    //    return View();
-    //}
+//[Area("Manager")]
+
 

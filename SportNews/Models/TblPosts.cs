@@ -15,7 +15,7 @@ namespace SportNews.Models
         public string Title { get; set; }
         public int? UserId { get; set; }
         public byte[] CreatedAt { get; set; }
-
+        public string img { get; set; }
         public virtual TblCategory Cate { get; set; }
         public virtual TblUsers User { get; set; }
     }

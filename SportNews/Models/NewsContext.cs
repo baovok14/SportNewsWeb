@@ -78,6 +78,9 @@ namespace SportNews.Models
                 entity.Property(e => e.Title)
                     .HasColumnName("title")
                     .HasMaxLength(255);
+                entity.Property(e => e.img)
+                    .HasColumnName("img")
+                    .HasMaxLength(255);
 
                 entity.Property(e => e.UserId).HasColumnName("user_id");
 
